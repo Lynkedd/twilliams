@@ -74,34 +74,33 @@ if (quoteForm) {
     }
   });
 }
-const attachment = document.getElementById("attachment");
-const selectedFiles = document.getElementById("selectedFiles");
+const attachment = document.getElementById('attachment');
+const selectedFiles = document.getElementById('selectedFiles');
 
 if (attachment && selectedFiles) {
+  attachment.addEventListener('change', () => {
+    selectedFiles.innerHTML = '';
 
-    attachment.addEventListener("change", () => {
+    Array.from(attachment.files).forEach((file) => {
+      const tag = document.createElement('div');
+      tag.className = 'file-tag';
 
-        selectedFiles.innerHTML = "";
+      const fileName = document.createElement('span');
+      fileName.textContent = file.name;
 
-        Array.from(attachment.files).forEach(file => {
+      const removeButton = document.createElement('button');
+      removeButton.type = 'button';
+      removeButton.setAttribute('aria-label', `Remove ${file.name}`);
+      removeButton.textContent = '×';
 
-            const tag = document.createElement("div");
-            tag.className = "file-tag";
+      removeButton.addEventListener('click', () => {
+        attachment.value = '';
+        selectedFiles.innerHTML = '';
+      });
 
-            tag.innerHTML = `
-                <span>${file.name}</span>
-                <button type="button">✕</button>
-            `;
-
-            tag.querySelector("button").onclick = () => {
-                attachment.value = "";
-                selectedFiles.innerHTML = "";
-            };
-
-            selectedFiles.appendChild(tag);
-
-        });
-
+      tag.appendChild(fileName);
+      tag.appendChild(removeButton);
+      selectedFiles.appendChild(tag);
     });
-
+  });
 }

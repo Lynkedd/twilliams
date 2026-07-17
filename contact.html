@@ -55,28 +55,152 @@
           <p>Required fields are marked with an asterisk.</p>
         </div>
 
-        <form class="quote-form" id="quoteForm" enctype="multipart/form-data">
-          <label><span>First Name *</span><input name="firstName" autocomplete="given-name" required></label>
-          <label><span>Last Name *</span><input name="lastName" autocomplete="family-name" required></label>
-          <label><span>Email Address *</span><input type="email" name="email" autocomplete="email" required></label>
-          <label><span>Phone Number *</span><input type="tel" name="phone" autocomplete="tel" required></label>
-          <label class="full"><span>Project Type *</span>
-            <select name="projectType" required>
-              <option value="">Select a service</option>
-              <option>Handrails</option><option>Entrance Gates</option><option>Walkthrough Gates</option><option>Spiral Staircases</option><option>Other Custom Metalwork</option>
-            </select>
-          </label>
-          <label><span>Project Address</span><input name="address" autocomplete="street-address"></label>
-          <label><span>City / Location *</span><input name="location" required></label>
-          <label><span>Preferred Timeline</span><select name="timeline"><option value="">Select timeline</option><option>As soon as possible</option><option>Within 1 month</option><option>Within 2–3 months</option><option>Within 3–6 months</option><option>Planning / researching</option></select></label>
-          <label><span>Approximate Budget</span><select name="budget"><option value="">Select budget</option><option>Under $2,500</option><option>$2,500–$5,000</option><option>$5,000–$10,000</option><option>$10,000+</option><option>Not sure yet</option></select></label>
-          <label class="full"><span>Project Description *</span><textarea name="details" placeholder="Describe the project, approximate dimensions, preferred style or finish, installation needs, and any deadlines." required></textarea></label>
-          <label class="full upload-field"><span>Project Photos</span><input type="file" name="photos" accept="image/*" multiple><small>Add photos, sketches, or inspiration images. Maximum file handling depends on the form service connected at launch.</small></label>
-          <label class="consent full"><input type="checkbox" required><span>I agree that TWilliams may contact me about this estimate request.</span></label>
-          <button class="btn btn-primary full" type="submit">Send Estimate Request</button>
-          <p class="form-status full" id="formStatus" role="status" aria-live="polite"></p>
-          <p class="form-note full"> Placeholder Text</p>
-        </form>
+<form class="quote-form" id="quoteForm" enctype="multipart/form-data">
+
+through:
+
+</form>
+
+with this:
+
+<form
+  class="quote-form"
+  id="quoteForm"
+  action="https://formspree.io/f/xzdnerod"
+  method="POST"
+  enctype="multipart/form-data"
+>
+
+  <label>
+    <span>First Name *</span>
+    <input type="text" name="firstName" autocomplete="given-name" required>
+  </label>
+
+  <label>
+    <span>Last Name *</span>
+    <input type="text" name="lastName" autocomplete="family-name" required>
+  </label>
+
+  <label>
+    <span>Email Address *</span>
+    <input type="email" name="email" autocomplete="email" required>
+  </label>
+
+  <label>
+    <span>Phone Number *</span>
+    <input type="tel" name="phone" autocomplete="tel" required>
+  </label>
+
+  <label class="full">
+    <span>Project Type *</span>
+    <select name="projectType" required>
+      <option value="">Select a service</option>
+      <option>Handrails</option>
+      <option>Entrance Gates</option>
+      <option>Walkthrough Gates</option>
+      <option>Spiral Staircases</option>
+      <option>Other Custom Metalwork</option>
+    </select>
+  </label>
+
+  <label>
+    <span>Project Address</span>
+    <input type="text" name="address" autocomplete="street-address">
+  </label>
+
+  <label>
+    <span>City / Location *</span>
+    <input type="text" name="location" required>
+  </label>
+
+  <label>
+    <span>Preferred Timeline</span>
+    <select name="timeline">
+      <option value="">Select timeline</option>
+      <option>As soon as possible</option>
+      <option>Within 1 month</option>
+      <option>Within 2–3 months</option>
+      <option>Within 3–6 months</option>
+      <option>Planning / Researching</option>
+    </select>
+  </label>
+
+  <label>
+    <span>Approximate Budget</span>
+    <select name="budget">
+      <option value="">Select budget</option>
+      <option>Under $2,500</option>
+      <option>$2,500–$5,000</option>
+      <option>$5,000–$10,000</option>
+      <option>$10,000+</option>
+      <option>Not Sure Yet</option>
+    </select>
+  </label>
+
+  <label class="full">
+    <span>Project Description *</span>
+    <textarea
+      name="details"
+      rows="7"
+      placeholder="Describe your project, approximate dimensions, materials you'd like, preferred finish, installation requirements, and any deadlines."
+      required
+    ></textarea>
+  </label>
+
+  <label class="full upload-field">
+    <span>Project Photos</span>
+    <input
+      type="file"
+      name="attachment"
+      accept="image/*"
+      multiple
+    >
+    <small>
+      Upload photos, drawings, or inspiration images to help us understand your project.
+    </small>
+  </label>
+
+  <!-- Honeypot Spam Protection -->
+  <input
+    type="text"
+    name="_gotcha"
+    style="display:none"
+  >
+
+  <!-- Email Subject -->
+  <input
+    type="hidden"
+    name="_subject"
+    value="New TWilliams Quote Request"
+  >
+
+  <!-- Disable Captcha -->
+  <input
+    type="hidden"
+    name="_captcha"
+    value="false"
+  >
+
+  <label class="consent full">
+    <input
+      type="checkbox"
+      name="contactConsent"
+      value="Agreed"
+      required
+    >
+    <span>
+      I agree that TWilliams may contact me regarding this estimate request.
+    </span>
+  </label>
+
+  <button
+    class="btn btn-primary full"
+    type="submit"
+  >
+    Request My Free Estimate
+  </button>
+
+</form>
       </div>
     </div>
   </section>

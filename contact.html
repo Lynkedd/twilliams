@@ -103,8 +103,20 @@
 
           <label class="full"><span>Project Description *</span><textarea name="details" rows="7" placeholder="Describe your project, approximate dimensions, preferred materials, style or finish, installation requirements, and any deadlines." required></textarea></label>
 
-          <label class="full upload-field"><span>Project Photos</span><input type="file" name="attachment" accept="image/png,image/jpeg,image/webp" multiple><small>Upload photos, drawings, sketches, or inspiration images that may help explain your project.</small></label>
-
+<label class="full upload-field">
+    <span>Project Photos</span>
+    <input
+        type="file"
+        id="attachment"
+        name="attachment"
+        accept="image/*"
+        multiple
+    >
+    <div id="selectedFiles" class="selected-files"></div>
+    <small>
+        Upload photos, drawings, or inspiration images.
+    </small>
+</label>
           <div class="form-honeypot" aria-hidden="true">
             <label>Leave this field empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
           </div>

@@ -74,3 +74,34 @@ if (quoteForm) {
     }
   });
 }
+const attachment = document.getElementById("attachment");
+const selectedFiles = document.getElementById("selectedFiles");
+
+if (attachment && selectedFiles) {
+
+    attachment.addEventListener("change", () => {
+
+        selectedFiles.innerHTML = "";
+
+        Array.from(attachment.files).forEach(file => {
+
+            const tag = document.createElement("div");
+            tag.className = "file-tag";
+
+            tag.innerHTML = `
+                <span>${file.name}</span>
+                <button type="button">✕</button>
+            `;
+
+            tag.querySelector("button").onclick = () => {
+                attachment.value = "";
+                selectedFiles.innerHTML = "";
+            };
+
+            selectedFiles.appendChild(tag);
+
+        });
+
+    });
+
+}
